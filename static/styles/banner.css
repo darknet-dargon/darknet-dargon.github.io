@@ -1,0 +1,37 @@
+.banner_88x31 {
+    width: 88px;
+    height: 31px;
+    display: inline-block;
+    overflow: visible;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 8px 8px;
+    border: 1px solid transparent;
+    transition: all .2s;
+}
+
+.banner_88x31:hover {
+    border: 1px solid #02e5fa;
+    box-shadow: 0 0 15px #02e5fa;
+}
+
+.badges_row {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+.texture {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -100;
+    background: url(https://i.imgur.com/34uOiaV.png);
+}
+.logo{
+    background-image: url(https://i.ibb.co/bsZj6TX/black.png);
+    background-repeat: no-repeat;
+    background-size: 70px 70px;
+    background-position: center;
+}
