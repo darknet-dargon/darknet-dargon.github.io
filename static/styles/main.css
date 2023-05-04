@@ -1,0 +1,305 @@
+:root {
+    --fg-orange: #FF671F;
+    --fg-green: #02d91b;
+    --fg-border: #f59847;
+    --fg-mid: #fff;
+    --fg-pink: #cf5fff;
+    --fg-white: #fff;
+    --shadow-white: 0 0 20px #dddddd;
+    --border-pink: 1px solid var(--fg-border);
+    --border-shadow-pink: inset 0 0 12px #5b3da8;
+}
+
+@font-face {
+    font-family: 'Fira Code';
+    src: url('https://sinewave.cyou/static/assets/FiraCode-Regular.ttf') format('truetype');
+}
+
+/* Fix html dumbassery */
+
+html {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main font settings */
+
+* {
+    color: var(--fg-white);
+    background: #0000;
+    font-family: 'Fira Code', monospace !important;
+    /*text-shadow : 0 0 20px #ff00ff;*/
+    text-shadow : 0 0 20px #fff;
+    outline: 0;
+    font-variant-ligatures: none;
+    overflow-x: hidden;
+}
+
+.header {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+/* ASCII art title */
+
+pre {
+    background-image: linear-gradient(var(--fg-orange), var(--fg-orange), var(--fg-mid), var(--fg-green), var(--fg-green), var(--fg-green), var(--fg-green));
+    background-repeat: no-repeat;
+    background-clip: text;
+    color: transparent;
+    /* Fuck you chromium */
+    -webkit-background-clip: text;
+    text-shadow: var(--shadow-white);
+    white-space: pre !important;
+    line-break: none;
+    text-align: left;
+    z-index: 9999;
+}
+
+/* Document body, obviously */
+
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-image: linear-gradient(#000000, #000000), linear-gradient(#fa5902, #fa5902), linear-gradient(#fa5902, #f2c185), linear-gradient(#f7ebdc, #c2f2c5), linear-gradient(#8ef285, #17fa02), linear-gradient(#17fa02, #17fa02);
+    /*
+    background-image: linear-gradient(#000000, #000000), linear-gradient(#090010, #090010), linear-gradient(#09001b, #09001b), linear-gradient(#12001b, #12001b), linear-gradient(#120024, #120024), linear-gradient(#16002b, #16002b);
+    */
+    background-repeat: no-repeat;
+    background-position: 0% 0%, 0% 20%, 0% 40%, 0% 60%, 0% 80%, 0% 100%;
+    background-size: 100vw 20%;
+    scrollbar-color: #aa5aaa88 #0000;
+    justify-content: center;
+}
+
+/* Navigation bar */
+
+.navbar {
+    height: 20pt;
+    margin-left: 20px;
+    margin-right: 20px;
+    background: #0008;
+    padding: 0px;
+    position: relative;
+    align-content: middle;
+    /*    border          : var(--border-pink);
+    box-shadow      : var(--border-shadow-pink);*/
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+/* Links in navbar */
+
+.navbar .link {
+    display: inline-block;
+    width: 75pt;
+    height: 16pt;
+    margin: 0px;
+    padding-top: 2pt;
+    border: var(--border-pink);
+    text-decoration: none;
+    margin-left: 10pt;
+    margin-right: 10pt;
+    transition: all .2s;
+}
+
+.navbar .link:hover {
+    color: black;
+    background: var(--fg-border);
+    box-shadow: 0 0 15pt var(--fg-border);
+}
+
+.navbar .disabled {
+    display: none;
+}
+
+.navbar .disabled:hover {
+    background: #00000000;
+    color: #f0f0f0;
+}
+
+/* Content */
+
+.content,
+.foldercontent {
+    margin: 20px;
+    background: #000;
+    border: 1px #fff solid;
+    box-shadow: var(--border-shadow-pink);
+    overflow-x: hidden;
+}
+
+.content {
+    overflow-y: auto;
+    padding-bottom: 10pt;
+    scrollbar-color: #aa5aaa88 #0000;
+}
+
+@media only screen and (min-width: 1540px) {
+    .content {
+        max-width: 1500px;
+        width: 1500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.foldercontent {
+    margin: 0;
+}
+
+.content p {
+    margin-left: 20pt;
+    margin-right: 20pt;
+    margin-bottom: 0pt;
+}
+
+.wintitle,
+.foldertitle,
+.doctitle {
+    background: black;
+    color: #fff;
+    margin: 0px;
+    padding-bottom: 2pt;
+    padding-left: 2pt;
+    display: block;
+    width: 100%;
+    overflow-y: hidden;
+    max-height: 10pt;
+    text-align: left;
+    font-size: 8pt;
+    font-weight: bold;
+    box-shadow: 0 0 12px #fff;
+}
+
+.doctitle {
+    width: auto;
+}
+
+.foldertitle {
+    padding-bottom: 1pt;
+    width: auto;
+    transition: background .2s, color .2s;
+    box-shadow: inset 0 0 12px #fff;
+    border: 1px #fff solid;
+}
+
+.foldertitle:hover {
+    background: #00000000;
+    color: #f0f0f0;
+}
+
+.folder {
+    box-shadow: none;
+    margin: 20pt;
+}
+
+.folderarrow::after {
+    content: "+";
+}
+
+.folder[open=""] .foldertitle .folderarrow::after {
+    content: "–";
+}
+
+.folder[open=""] div {
+    animation: fadein .1s linear;
+}
+
+.folder div {
+    box-shadow: inset 0 0 12px #fff;
+}
+
+.folderarrow {
+    float: right;
+    color: #16002b;
+    background: #00000000;
+    margin-right: 5pt;
+    font-size: 9pt;
+}
+
+.foldertitle:hover .folderarrow {
+    color: #f0f0f0;
+}
+
+/* Tab stuff */
+
+.tabview {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tabcontent {
+    height: 0px;
+    opacity: 0;
+    width: 100%;
+    order: 99;
+    transition: opacity .2s;
+}
+
+.tab {
+    display: none;
+}
+
+.tablabel {
+    order: 1;
+    display: block;
+    padding: 2pt;
+    cursor: pointer;
+    flex-grow: 1;
+    transition: background .2s, box-shadow .2s;
+}
+
+.tab:checked+label+.tabcontent {
+    height: auto;
+    opacity: 100;
+}
+
+/* Links in text */
+
+.bodylink {
+    text-decoration: none;
+}
+
+/* Hover version */
+
+.bodylink:hover {
+    color: #999999;
+}
+
+.docimage {
+    margin: 20px;
+    box-shadow: none;
+    width: 50%;
+    position: relative;
+}
+
+/* Mobile logo thing */
+
+@media only screen and (max-width: 950px) {
+    pre {
+        font-size: 5pt;
+    }
+    .docimage img {
+        width: 100%;
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100;
+    }
+}
