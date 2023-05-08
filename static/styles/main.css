@@ -68,10 +68,7 @@ body {
     width: 100vw;
     overflow-x: hidden;
     overflow-y: scroll;
-    background-image: linear-gradient(#000000, #000000), linear-gradient(#fa5902, #fa5902), linear-gradient(#fa5902, #f2c185), linear-gradient(#f7ebdc, #c2f2c5), linear-gradient(#8ef285, #17fa02), linear-gradient(#17fa02, #17fa02);
-    /*
-    background-image: linear-gradient(#000000, #000000), linear-gradient(#090010, #090010), linear-gradient(#09001b, #09001b), linear-gradient(#12001b, #12001b), linear-gradient(#120024, #120024), linear-gradient(#16002b, #16002b);
-    */
+    background-image: linear-gradient(#000000, #000000), linear-gradient(#000000, #fa5902), linear-gradient(#fa5902, #f2c185), linear-gradient(#f7ebdc, #c2f2c5), linear-gradient(#8ef285, #17fa02), linear-gradient(#17fa02, #000000);
     background-repeat: no-repeat;
     background-position: 0% 0%, 0% 20%, 0% 40%, 0% 60%, 0% 80%, 0% 100%;
     background-size: 100vw 20%;
@@ -102,10 +99,12 @@ body {
 
 .navbar .link {
     display: inline-block;
-    width: 75pt;
+    width: auto;
     height: 16pt;
     margin: 0px;
     padding-top: 2pt;
+    padding-left: 3pt;
+    padding-right: 3pt;
     border: var(--border-pink);
     text-decoration: none;
     margin-left: 10pt;
@@ -118,7 +117,6 @@ body {
     background: var(--fg-border);
     box-shadow: 0 0 15pt var(--fg-border);
 }
-
 .navbar .disabled {
     display: none;
 }
