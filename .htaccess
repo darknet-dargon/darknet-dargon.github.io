@@ -1,2 +1,3 @@
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
 DirectoryIndex index.asp.html
+ErrorDocument 404 http://google.com/404/
