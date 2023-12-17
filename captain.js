@@ -46,7 +46,7 @@ loadCSS("shield.css"); // Replace "path/to/shield.css" with the actual path of y
       z-index: 9999;
       animation: blink 1s infinite;
     `;
-    overlay.innerHTML = "<span id='blinkText'>DDoS Protection by me</span>";
+    overlay.innerHTML = "DDoS Protection by me";
     document.body.appendChild(overlay);
 
     // Remove the overlay after 5 seconds
