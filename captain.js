@@ -16,7 +16,18 @@ function checkVisit() {
     setCookie("visited", "true", 1); // 1 hour (in hours)
 
     // Load CSS
-    loadCSS("shield.css");
+  function loadCSS(filename) {
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = filename;
+  document.head.appendChild(link);
+}
+
+// Other functions and code...
+
+// Inside the checkVisit function or where you set the cookie and display the overlay
+loadCSS("shield.css"); // Replace "path/to/shield.css" with the actual path of your shield.css file
+
 
     // Create and display the overlay
     const overlay = document.createElement("div");
