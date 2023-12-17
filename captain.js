@@ -33,7 +33,7 @@ function checkVisit() {
     // Set cookie to mark the user's visit
     setCookie("visited", "true", 1/24); // 1 hour (1/24 of a day)
  // Cookie expires in 30 days
-loadCSS("path/to/shield.css");
+loadCSS("shield.css");
     // Create and display the overlay
     const overlay = document.createElement("div");
     overlay.style.cssText = `
@@ -49,6 +49,7 @@ loadCSS("path/to/shield.css");
       color: white;
       font-size: 24px;
       z-index: 9999;
+      animation: blink 1s infinite;
     `;
     overlay.innerHTML = "<span id='blinkText'>DDoS Protection by me</span>";
     document.body.appendChild(overlay);
