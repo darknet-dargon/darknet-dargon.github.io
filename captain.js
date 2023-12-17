@@ -1,26 +1,8 @@
-// Function to set a cookie
-function setCookie(cookieName, cookieValue, expirationDays) {
+function setCookie(cookieName, cookieValue, expirationHours) {
   const d = new Date();
-  d.setTime(d.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
+  d.setTime(d.getTime() + (expirationHours * 60 * 60 * 1000)); // Multiply by milliseconds in an hour
   const expires = "expires=" + d.toUTCString();
   document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
-}
-
-// Function to get a cookie by name
-function getCookie(cookieName) {
-  const name = cookieName + "=";
-  const decodedCookie = decodeURIComponent(document.cookie);
-  const cookieArray = decodedCookie.split(';');
-  for (let i = 0; i < cookieArray.length; i++) {
-    let cookie = cookieArray[i];
-    while (cookie.charAt(0) === ' ') {
-      cookie = cookie.substring(1);
-    }
-    if (cookie.indexOf(name) === 0) {
-      return cookie.substring(name.length, cookie.length);
-    }
-  }
-  return "";
 }
 
 // Function to check if the user has visited before
@@ -30,10 +12,12 @@ function checkVisit() {
     // User has visited before, do nothing
     return;
   } else {
-    // Set cookie to mark the user's visit
-    setCookie("visited", "true", 1/24); // 1 hour (1/24 of a day)
- // Cookie expires in 30 days
-loadCSS("shield.css");
+    // Set cookie to mark the user's visit for 1 hour
+    setCookie("visited", "true", 1); // 1 hour (in hours)
+
+    // Load CSS
+    loadCSS("shield.css");
+
     // Create and display the overlay
     const overlay = document.createElement("div");
     overlay.style.cssText = `
