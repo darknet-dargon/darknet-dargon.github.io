@@ -1,1 +1,81 @@
-:)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error 404 - Page Not Found</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #141d26;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .astronaut img {
+      max-width: 100%;
+      animation: floatAstronaut 4s ease-in-out infinite;
+    }
+
+    .text {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    @keyframes floatAstronaut {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #00bcd4;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0097a7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="astronaut">
+      <img src="https://i.ibb.co/bsZj6TX/black.png" alt="Lost Astronaut">
+    </div>
+    <div class="text">
+      <h1>Error 404: Page Not Found</h1>
+      <p>Oops! It seems you've wandered off the beaten path.</p>
+      <p>Don't worry, we're working to bring you back!</p>
+      <button onclick="goBack()">Go Back</button>
+    </div>
+  </div>
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
+</html>
