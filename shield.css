@@ -9,3 +9,7 @@
     opacity: 1;
   }
 }
+
+#blinkText {
+  animation: blink 1s infinite;
+}
