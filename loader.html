@@ -4,31 +4,58 @@
   <meta charset="UTF-8">
   <title>Loader</title>
   <style>
-    /* Add your CSS for the animated loader here */
+    /* Add your CSS for the animated thunderbolt loader here */
     /* This is a simple example; you can replace this with your animation CSS */
     .loader {
-      border: 16px solid #f3f3f3;
-      border-top: 16px solid #3498db;
-      border-radius: 50%;
-      width: 120px;
-      height: 120px;
-      animation: spin 2s linear infinite;
       position: absolute;
       top: 50%;
       left: 50%;
-      margin-top: -60px;
-      margin-left: -60px;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    .thunderbolt {
+      position: relative;
+      width: 0;
+      height: 0;
+      border-left: 30px solid transparent;
+      border-right: 30px solid transparent;
+      border-bottom: 60px solid #3498db; /* Change the color of the thunderbolt here */
+      animation: thunder 1.5s linear infinite;
+    }
+
+    @keyframes thunder {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      25% {
+        transform: translateY(-10px) rotate(-5deg);
+      }
+      50% {
+        transform: translateY(0) rotate(0deg);
+      }
+      75% {
+        transform: translateY(-10px) rotate(5deg);
+      }
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+    }
+
+    h2 {
+      text-align: center;
     }
   </style>
 </head>
 <body>
   <!-- Replace this div with your custom animated content -->
-  <div class="loader"></div>
-  <h2 style="text-align: center; position: absolute; top: 80%; left: 50%; transform: translateX(-50%);">DDoS Protection by BlackDragonSec</h2>
+  <div class="loader">
+    <div class="thunderbolt"></div>
+  </div>
+  <h2>DDoS Protection by BlackDragonSec</h2>
 </body>
 </html>
