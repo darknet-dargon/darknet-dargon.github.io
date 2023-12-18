@@ -54,4 +54,4 @@ function setCookie(name, value, hours) {
     }
 
     // Call the function to display the loader
-    displayLoader();￼Enter
+    displayLoader();
