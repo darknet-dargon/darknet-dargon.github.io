@@ -1,60 +1,57 @@
-function setCookie(cookieName, cookieValue, expirationHours) {
-  const d = new Date();
-  d.setTime(d.getTime() + (expirationHours * 60 * 60 * 1000)); // Multiply by milliseconds in an hour
-  const expires = "expires=" + d.toUTCString();
-  document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
-}
+function setCookie(name, value, hours) {
+      var expires = "";
+      if (hours) {
+        var date = new Date();
+        date.setTime(date.getTime() + (hours * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + value + expires + "; path=/";
+    }
 
-// Function to check if the user has visited before
-function checkVisit() {
-  const visited = getCookie("visited");
-  if (visited !== "") {
-    // User has visited before, do nothing
-    return;
-  } else {
-    // Set cookie to mark the user's visit for 1 hour
-    setCookie("visited", "true", 1); // 1 hour (in hours)
+    // Function to get the value of a specific cookie by name
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        while (cookie.charAt(0) === ' ') {
+          cookie = cookie.substring(1, cookie.length);
+        }
+        if (cookie.indexOf(nameEQ) === 0) {
+          return cookie.substring(nameEQ.length, cookie.length);
+        }
+      }
+      return null;
+    }
 
-    // Load CSS
-  function loadCSS(filename) {
-  const link = document.createElement("link");
-  link.rel = "stylesheet";
-  link.href = filename;
-  document.head.appendChild(link);
-}
+    // Function to check if the loader should be displayed or not
+    function displayLoader() {
+      var loaderCookie = getCookie("loaderDisplayed");
+      if (!loaderCookie) {
+        // Loader is not displayed, so load the loader.html content
+        var loaderFrame = document.createElement("iframe");
+        loaderFrame.setAttribute("src", "loader.html");
+        loaderFrame.setAttribute("id", "loaderFrame");
+        loaderFrame.style.position = "fixed";
+        loaderFrame.style.top = "0";
+        loaderFrame.style.left = "0";
+        loaderFrame.style.width = "100%";
+        loaderFrame.style.height = "100%";
+        loaderFrame.style.border = "none";
+        document.body.appendChild(loaderFrame);
 
-// Other functions and code...
+        // Set a cookie to indicate that the loader was displayed
+        setCookie("loaderDisplayed", "true", 6); // Expires in 6 hours
 
-// Inside the checkVisit function or where you set the cookie and display the overlay
-loadCSS("shield.css"); // Replace "path/to/shield.css" with the actual path of your shield.css file
+        // Hide the loader after 5 seconds
+        setTimeout(function() {
+          var frame = document.getElementById("loaderFrame");
+          if (frame) {
+            frame.style.display = "none";
+          }
+        }, 5000); // 5 seconds
+      }
+    }
 
-
-    // Create and display the overlay
-    const overlay = document.createElement("div");
-    overlay.style.cssText = `
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: black;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      font-size: 24px;
-      z-index: 9999;
-      animation: blink 1s infinite;
-    `;
-    overlay.innerHTML = "DDoS Protection by me";
-    document.body.appendChild(overlay);
-
-    // Remove the overlay after 5 seconds
-    setTimeout(() => {
-      overlay.style.display = "none";
-    }, 5000);
-  }
-}
-
-// Call the function to check the visit status
-checkVisit();
+    // Call the function to display the loader
+    displayLoader();￼Enter
