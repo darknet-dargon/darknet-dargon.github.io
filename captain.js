@@ -33,9 +33,9 @@ function setCookie(name, value, hours) {
         loaderFrame.setAttribute("src", "loader.html");
         loaderFrame.setAttribute("id", "loaderFrame");
         loaderFrame.style.position = "fixed";
-            loaderFrame.style.position = "fixed";
-loaderFrame.style.overflow = "hidden";
-loaderFrame.style.z-index = "99999999";
+        loaderFrame.style.position = "fixed";
+        loaderFrame.style.overflow = "hidden";
+        
         loaderFrame.style.top = "0";
         loaderFrame.style.left = "0";
         loaderFrame.style.width = "100%";
